@@ -11,13 +11,15 @@ BATCH_SIZE = 50
 LR = 0.001          
 EPOCH = 1
 TEST_SIZE = 2000
+DOWNLOAD_MNIST = True
 
 
 # train_data mnist
 train_data = MNIST(
     root='./datasets/mnist',
     train=True,
-    transform=torchvision.transforms.ToTensor()
+    transform=torchvision.transforms.ToTensor(),
+    download=DOWNLOAD_MNIST,
 )
 # train_loader
 train_loader = data.DataLoader(
