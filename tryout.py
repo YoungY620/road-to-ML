@@ -1,6 +1,8 @@
-import torch 
+import torch.nn as nn
+import torch
+import numpy as np 
 
-t = torch.arange(0, 100)
-print(t)
-indexes = (torch.rand(size=(5,))*100).type(torch.LongTensor)
-print(t[indexes])
+a = np.ones(3)
+b = np.zeros(2)
+print(a,b)
+print(np.concatenate((a,[2],b,[5])))

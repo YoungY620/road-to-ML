@@ -22,13 +22,13 @@ class Net(torch.nn.Module):
         return x
 
 
-net = Net(n_feature=1, n_hidden=10, n_output=1)
+net = Net(n_feature=1, n_hidden=5, n_output=1)
 print(net)
 
 optimizer = torch.optim.SGD(net.parameters(), lr=0.5)
 loss_func = torch.nn.MSELoss()
 
-# plt.ion()
+plt.ion()
 for i in range(101):
     prediction = net(x)
     loss = loss_func(prediction, y)
@@ -41,6 +41,7 @@ for i in range(101):
         plt.scatter(x.data.numpy(), y.data.numpy())
         plt.plot(x.data.numpy(), prediction.data.numpy(), 'r-', lw=5)
         plt.text(0.5, 0, 'Loss=%.4f' % loss.data.numpy(), fontdict={'size': 20, 'color': 'red'})
-        plt.show()
+        plt.draw()
         plt.pause(0.1) 
-# plt.ioff()
+plt.ioff()
+plt.show()
